@@ -22,6 +22,7 @@ On standalones:
 - ssh server
 - autosuspend (maybe)
 
+
 ## Zsh
 
 - Change to zsh with `chsh`
@@ -108,7 +109,8 @@ or alternately `rebase = false` under pull
 
 ## Python
 
-Install pipenv into `.local/`  user with `pip install pipenv`
+Install pipenv into `.local/`  user with  
+`pip install pipenv`
 
 ### asdf
 
@@ -123,4 +125,25 @@ python system
 nodejs system
 ```
 - Add .tool-versions file to development projects as needed
+
+
+## AWS
+
+AWS cli v2 install from https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+Optionally set default region in `~/.zshenv` with  
+`export AWS_DEFAULT_REGION=eu-west-1`
+
+
+## sudo
+
+
+Can specify visudo editor with  
+`Defaults        editor=/usr/bin/micro`
+
+Specify a group sudo with  
+`%sudo   ALL=(ALL:ALL) ALL`
+
+Place overrides at _end_ of sudoers file
+
 
