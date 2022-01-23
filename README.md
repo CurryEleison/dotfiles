@@ -151,3 +151,15 @@ Specify a group sudo with
 `%sudo   ALL=(ALL:ALL) ALL`
 
 Place overrides at _end_ of sudoers file
+
+
+## docker
+
+Install programs at https://docs.docker.com/engine/install/debian/ 
+
+Configure with https://docs.docker.com/engine/install/linux-postinstall/
+
+
+## jvm
+
+Have used SDKMAN from https://sdkman.io/ with good results. asdf does have plugins, but I haven't been experimenting much.
