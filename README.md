@@ -26,24 +26,21 @@ On standalones:
 ## Zsh
 
 - Change to zsh with `chsh`
-- Install oh-my-zsh with `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+- Install oh-my-zsh with  
+`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 - Ensure `LC_CTYPE` (or `LANG`) is set to `en_US.UTF-8`
-- Install zsh-autosuggestions: 
-```
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-```
-- Install zsh-syntax-highlighting
-```
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
+- Install zsh-autosuggestions:  
+`git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+- Install zsh-syntax-highlighting  
+`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
 ### .zshrc
 
-```
+```sh
 # Current favorite theme
 ZSH_THEME="fishy"
 
-# Update when it's tim
+# Update oh-my-zsh when it's time
 zstyle ':omz:update' mode reminder
 
 # YMD format in history command
@@ -58,6 +55,14 @@ plugins=(
         zsh-syntax-highlighting
         )
 
+# Alias for python if Debian doesn't set it up
+alias python=python3
+```
+### Environment
+
+Can go in `~/.zshenv` or `~/.zshrc`
+
+```sh
 # Editor (vi when in VS Code terminal, but micro otherwise)
 if [[ $TERM_PROGRAM ]]; then
         export VISUAL="vim"
@@ -75,18 +80,14 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-# Alias for python if Debian doesn't set it up
-alias python=python3
-
-
 ```
+
 
 
 ## micro editor
 
 In `~/.config/micro/settings.json`:
-```
+```json
 {
     "clipboard": "terminal"
 }
@@ -96,7 +97,7 @@ In `~/.config/micro/settings.json`:
 ## Git
 
 In `~/.gitconfig`:
-```
+```ini
 [user]
         name = Thomas Petersen
         email = petersen@temp.dk
@@ -109,7 +110,7 @@ or alternately `rebase = false` under pull
 
 ## Python
 
-Install pipenv into `.local/`  user with  
+Install pipenv into `~/.local/` with  
 `pip install pipenv`
 
 ### asdf
@@ -117,8 +118,10 @@ Install pipenv into `.local/`  user with
 - Download from git: https://asdf-vm.com/guide/getting-started.html#_2-download-asdf
 - Enabling oh-my-zsh plugin will ensure paths etc are set up in zsh. Use 
     https://asdf-vm.com/guide/getting-started.html#_3-install-asdf to cover more shells
-- Install python plugin with `asdf plugin add python`
-- Install e.g. v3.8.12 with `asdf install python 3.8.12`
+- Install python plugin with  
+`asdf plugin add python`
+- Install e.g. v3.8.12 with  
+`asdf install python 3.8.12`
 - In `~/.tool-versions` add 
 ```
 python system
@@ -134,6 +137,9 @@ AWS cli v2 install from https://docs.aws.amazon.com/cli/latest/userguide/getting
 Optionally set default region in `~/.zshenv` with  
 `export AWS_DEFAULT_REGION=eu-west-1`
 
+### awsume
+
+...
 
 ## sudo
 
@@ -145,5 +151,3 @@ Specify a group sudo with
 `%sudo   ALL=(ALL:ALL) ALL`
 
 Place overrides at _end_ of sudoers file
-
-
