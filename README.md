@@ -6,7 +6,8 @@ Notes and Scripts I use
 
 On Debian some prereqs to make anything work:
 
-- wget, curl, git, gcc, make, python3, python3-pip
+- wget curl git gcc python3 python3-pip python3-venv
+- make build-essential libssl-dev zlib1g-dev llvm libbz2-dev libreadline-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 Additionally:
 
@@ -15,6 +16,8 @@ Additionally:
 - git
 - zsh
 - oh-my-zsh (https://ohmyz.sh/#install)
+- jq
+- zip unzip
 
 On standalones:
 
@@ -34,7 +37,7 @@ On standalones:
 - Install zsh-syntax-highlighting  
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
-### .zshrc
+### .zshrc (and oh-my-zsh configuration)
 
 ```sh
 # Current favorite theme
@@ -58,6 +61,9 @@ plugins=(
 # Alias for python if Debian doesn't set it up
 alias python=python3
 ```
+
+Other interesting plugins: python, sdk, sbt, node
+
 ### Environment
 
 Can go in `~/.zshenv` or `~/.zshrc`
@@ -82,6 +88,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 ```
 
+### oh-my-zsh
 
 
 ## micro editor
@@ -110,8 +117,15 @@ or alternately `rebase = false` under pull
 
 ## Python
 
-Install pipenv into `~/.local/` with  
-`pip install pipenv`
+Install pipx into `~/.local/` with  
+```
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+Now install pipenv with  
+`pipx install pipenv`
+
+The oh-my-zsh plugin for python looks decent.
 
 ### asdf
 
@@ -139,18 +153,27 @@ Optionally set default region in `~/.zshenv` with
 
 ### awsume
 
-...
+Install with  
+`pipx install awsume`
+
+oh-my-zsh plugin at https://github.com/Sordie/AWSume
 
 ## sudo
 
-
 Can specify visudo editor with  
-`Defaults        editor=/usr/bin/micro`
+`Defaults        editor=/usr/bin/vim`
 
 Specify a group sudo with  
 `%sudo   ALL=(ALL:ALL) ALL`
 
-Place overrides at _end_ of sudoers file
+Place overrides at _end_ of sudoers file:  
+```config
+# no password to suspend machine
+tpetersen       ALL=(ALL) NOPASSWD: /usr/bin/systemctl suspend
+# No password to start and stop VPN
+tpetersen       ALL=(ALL) NOPASSWD: /usr/bin/systemctl start openvpn-client@<VPNCONFIG>
+tpetersen       ALL=(ALL) NOPASSWD: /usr/bin/systemctl stop openvpn-client@<VPNCONFIG>
+```
 
 
 ## docker
@@ -162,4 +185,25 @@ Configure with https://docs.docker.com/engine/install/linux-postinstall/
 
 ## jvm
 
-Have used SDKMAN from https://sdkman.io/ with good results. asdf does have plugins, but I haven't been experimenting much.
+Have used SDKMAN from https://sdkman.io/ with good results. asdf does have plugins, 
+but I haven't been experimenting much. 
+
+There is an asdf plugin at
+https://github.com/halcyon/asdf-java which seems maintained as well as a scala plugin.
+
+
+## node
+
+node is often best managed from asdf
+
+Some nice environment variables to set up for node:
+
+```sh
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+export PATH="$PATH:$NPM_PACKAGES/bin"
+
+# Preserve MANPATH if you already defined it somewhere in your config.
+# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+```
