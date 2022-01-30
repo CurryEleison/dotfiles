@@ -146,7 +146,8 @@ nodejs system
 
 ## AWS
 
-AWS cli v2 install from https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+AWS cli v2 install from https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html . Do _not_ use the pip package. To install as a userland application download, unpack and then install with:  
+`./aws/install --install-dir $HOME/.local/aws --bin-dir $HOME/.local/bin`
 
 Optionally set default region in `~/.zshenv` with  
 `export AWS_DEFAULT_REGION=eu-west-1`
@@ -207,3 +208,19 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 ```
+
+## Fun and Optionalities
+
+### Syntax Highlighting with `less`
+
+With `highlight` (Best option)  
+
+```sh
+sudo apt install highlight
+export LESS=-FMRXis
+export LESSOPEN='| command highlight --force -O truecolor --style aiseered "%s"'
+```
+
+You can also just go `export LESS=" -R "` which I think is already the default in Debian.
+
+There is also a nice more elaborate solution at https://superuser.com/a/1332042 
