@@ -25,6 +25,10 @@ On standalones:
 - ssh server
 - autosuspend (maybe)
 
+On mac
+
+- xcode command line applications
+
 
 ## Zsh
 
@@ -90,6 +94,9 @@ fi
 
 ### oh-my-zsh
 
+## vim
+
+Enhanced defaults at https://github.com/tpope/vim-sensible
 
 ## micro editor
 
@@ -142,6 +149,10 @@ python system
 nodejs system
 ```
 - Add .tool-versions file to development projects as needed
+
+#### asdf-prompt
+
+Install asdf-prompt plugin for oh-my-zsh from https://github.com/CurryEleison/zsh-asdf-prompt
 
 
 ## AWS
@@ -208,6 +219,48 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 ```
+
+
+## R
+
+Use asdf or https://cran.r-project.org/bin/linux/debian/ to install base.
+
+To stop nagging about saving workspace:  
+`alias R='R --no-save'`
+
+### Packages
+
+You will need `libcurl`. E.g.  
+`sudo apt install libcurl4-openssl-dev`
+
+For the Visual studio plugin you probably want `radian`:  
+`pipx install radian`
+
+
+The following are worth installing right away. Take them one at a time 
+since installation errors are common.
+
+```R
+# For Visual Studio Code plugin
+install.packages("languageserver")
+install.packages("httpgd")
+# For actual analysis :)
+install.packages("tidyverse")
+```
+
+### Visual Studio Code
+
+The good plugin is at https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r .
+Once installed you can set up keyboard shortcuts: 
+https://github.com/REditorSupport/vscode-R/wiki/Keyboard-shortcuts
+and enable `httpgd`:  
+`echo "options(vsc.use_httpgd = TRUE)" >> ~/.Rprofile`
+
+### R Markdown
+
+Needs `pandoc` and a copy of $LaTeX$.
+https://alexd106.github.io/intro2R/install_rmarkdown.html . (I have not tried to get that going yet.)
+
 
 ## Fun and Optionalities
 
