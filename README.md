@@ -277,3 +277,15 @@ export LESSOPEN='| command highlight --force -O truecolor --style aiseered "%s"'
 You can also just go `export LESS=" -R "` which I think is already the default in Debian.
 
 There is also a nice more elaborate solution at https://superuser.com/a/1332042 
+
+### Ctrl+D in PowerShell
+
+To exit with Ctrl+D from PowerShell do 
+```ps1
+notepad $profile
+```
+
+and in the resulting editor put in the line
+```ps1
+Set-PSReadlineKeyHandler -Key ctrl+d -Function ViExit
+```
