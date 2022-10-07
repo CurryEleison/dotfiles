@@ -7,7 +7,7 @@ Notes and Scripts I use
 On Debian some prereqs to make anything work:
 
 - wget curl git gcc python3 python3-pip python3-venv
-- make build-essential libssl-dev zlib1g-dev llvm libbz2-dev libreadline-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+- make build-essential libssl-dev zlib1g-dev llvm libbz2-dev libreadline-dev libncursesw5-dev xz-utils libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 Additionally:
 
