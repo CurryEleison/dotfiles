@@ -18,6 +18,7 @@ Additionally:
 - oh-my-zsh (https://ohmyz.sh/#install)
 - jq
 - zip unzip
+- bottom (top alternative, https://github.com/ClementTsang/bottom#debianubuntu )
 
 On standalones:
 
@@ -45,7 +46,7 @@ On mac
 
 ```sh
 # Current favorite theme
-ZSH_THEME="fishy"
+ZSH_THEME="fishy-asdf"
 
 # Update oh-my-zsh when it's time
 zstyle ':omz:update' mode reminder
@@ -57,7 +58,8 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
         git
         asdf
-        ssh-agent
+        awsume
+        zsh-asdf-prompt
         zsh-autosuggestions
         zsh-syntax-highlighting
         )
@@ -66,7 +68,7 @@ plugins=(
 alias python=python3
 ```
 
-Other interesting plugins: python, sdk, sbt, node
+Other interesting plugins: python, sdk, sbt, node, ssh-agent
 
 ### Environment
 
@@ -228,7 +230,7 @@ Use asdf or https://cran.r-project.org/bin/linux/debian/ to install base.
 To stop nagging about saving workspace:  
 `alias R='R --no-save'`
 
-### Packages
+### R Packages
 
 You will need `libcurl`. E.g.  
 `sudo apt install libcurl4-openssl-dev`
@@ -248,7 +250,7 @@ install.packages("httpgd")
 install.packages("tidyverse")
 ```
 
-### Visual Studio Code
+### Visual Studio Code R plugin
 
 The good plugin is at https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r .
 Once installed you can set up keyboard shortcuts: 
@@ -260,6 +262,10 @@ and enable `httpgd`:
 
 Needs `pandoc` and a copy of $LaTeX$.
 https://alexd106.github.io/intro2R/install_rmarkdown.html . (I have not tried to get that going yet.)
+
+## .NET
+
+Installation: https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian
 
 
 ## Fun and Optionalities
