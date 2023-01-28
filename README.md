@@ -291,7 +291,10 @@ To exit with Ctrl+D from PowerShell do
 notepad $profile
 ```
 
-and in the resulting editor put in the line
+and in the resulting editor put in the lines
 ```ps1
 Set-PSReadlineKeyHandler -Key ctrl+d -Function ViExit
+Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
 ```
+
+The latter helps with fish-style completions of greyed completions.
