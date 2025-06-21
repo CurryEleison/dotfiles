@@ -4,23 +4,23 @@ Notes and Scripts I use
 
 ## Installations
 
-On Debian some prereqs to make anything work:
+On Debian some prereqs to make anything work (less necessary on Ubuntu):
 
-- wget curl git gcc python3 python3-pip python3-venv
+- wget curl git gcc python3
 - make build-essential libssl-dev zlib1g-dev llvm libbz2-dev libreadline-dev libncursesw5-dev xz-utils libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 Additionally:
-
+- python3-pip
+- python3-venv
 - vim (or nvim)
 - micro
-- git
 - zsh
 - oh-my-zsh (https://ohmyz.sh/#install)
 - jq
 - zip unzip
 - bottom (top alternative, https://github.com/ClementTsang/bottom#debianubuntu )
 
-On standalones:
+On standalones/serverlikes:
 
 - openvpn
 - ssh server
