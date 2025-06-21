@@ -46,7 +46,7 @@ On mac
 
 ```sh
 # Current favorite theme
-ZSH_THEME="fishy-asdf"
+ZSH_THEME="fishy"
 
 # Update oh-my-zsh when it's time
 zstyle ':omz:update' mode reminder
@@ -57,15 +57,15 @@ HIST_STAMPS="yyyy-mm-dd"
 # Plugins
 plugins=(
         git
-        asdf
-        awsume
-        zsh-asdf-prompt
+        #asdf
+        #awsume
+        #zsh-asdf-prompt
         zsh-autosuggestions
         zsh-syntax-highlighting
         )
 
 # Alias for python if Debian doesn't set it up
-alias python=python3
+#alias python=python3
 ```
 
 Other interesting plugins: python, sdk, sbt, node, ssh-agent
@@ -114,6 +114,8 @@ In `~/.config/micro/settings.json`:
 
 In `~/.gitconfig`:
 ```ini
+[init]
+        defaultBranch = main
 [user]
         name = Thomas Petersen
         email = petersen@temp.dk
